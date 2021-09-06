@@ -16,8 +16,7 @@ commit(){
     git add .
     git commit -am "Update"
     git remote -v
-    git remote set-url origin git@github.com:hyyds/jd-scripts.git
-    git push origin main > /tmp/git_log
+    git push --porcelain > /tmp/git_log
     result=$(grep "up to date" /tmp/git_log)
     rm /tmp/git_log
     if [ "$result" ]
@@ -39,8 +38,7 @@ then
 fi
 
 cd /tmp/dest_repo
-#find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
-echo  '是这'
+find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
 commit
 mkdir /tmp/backup
 
