@@ -11,7 +11,6 @@ dest_repo=$3
 params=$4
 
 commit(){
-    echo '进来了'
     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
     git config user.name "Auto Update Bot"
     git add .
@@ -31,8 +30,7 @@ commit(){
 echo
 echo "-----------------------Cloning destination repo-----------------------"
 git clone $dest_repo /tmp/dest_repo
-ls -a
-echo '1'
+
 if [ ! -d "/tmp/dest_repo" ]
 then
     echo "Failed to clone dest repo!"
@@ -41,6 +39,8 @@ fi
 
 cd /tmp/dest_repo
 find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
+ls -a
+echo  '是这'
 mkdir /tmp/backup
 
 echo
@@ -48,8 +48,8 @@ echo "--------------------------Cloning source repo-------------------------"
 git clone --depth 1 -b $source_branch $source_repo /tmp/source_repo
 if [ -d "/tmp/source_repo" ]; then
     rm -rf /tmp/source_repo/.git/
-    ls -a
-    echo '2'
+
+    echo
     echo "-----------------------------Syncing repo-----------------------------"
     mv -f /tmp/source_repo/* /tmp/dest_repo
 
