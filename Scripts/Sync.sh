@@ -11,7 +11,7 @@ dest_repo=$3
 params=$4
 
 commit(){
-    git config user.email " 41898282+github-actions[bot]@users.noreply.github.com"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
     git config user.name "Auto Update Bot"
     git add .
     git commit -am "Update"
@@ -31,9 +31,9 @@ echo
 echo "-----------------------Cloning destination repo-----------------------"
 git clone $dest_repo /tmp/dest_repo
 
-if [ ! -d "/tmp/dest_repo" ] 
+if [ ! -d "/tmp/dest_repo" ]
 then
-    echo "Failed to clone dest repo!" 
+    echo "Failed to clone dest repo!"
     exit 1
 fi
 
