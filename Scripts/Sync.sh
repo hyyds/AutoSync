@@ -11,6 +11,7 @@ dest_repo=$3
 params=$4
 
 commit(){
+    echo '进来了'
     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
     git config user.name "Auto Update Bot"
     git add .
@@ -18,7 +19,7 @@ commit(){
     git push --porcelain > /tmp/git_log
     result=$(grep "up to date" /tmp/git_log)
     rm /tmp/git_log
-
+    echo '执行到这了'
     if [ "$result" ]
     then
         update=false
@@ -30,7 +31,8 @@ commit(){
 echo
 echo "-----------------------Cloning destination repo-----------------------"
 git clone $dest_repo /tmp/dest_repo
-
+ls -a
+echo '1'
 if [ ! -d "/tmp/dest_repo" ]
 then
     echo "Failed to clone dest repo!"
@@ -46,8 +48,8 @@ echo "--------------------------Cloning source repo-------------------------"
 git clone --depth 1 -b $source_branch $source_repo /tmp/source_repo
 if [ -d "/tmp/source_repo" ]; then
     rm -rf /tmp/source_repo/.git/
-
-    echo
+    ls -a
+    echo '2'
     echo "-----------------------------Syncing repo-----------------------------"
     mv -f /tmp/source_repo/* /tmp/dest_repo
 
@@ -64,6 +66,8 @@ if [ -d "/tmp/source_repo" ]; then
     fi
 
     rm -f README*
+    ls -a
+    echo '3'
     commit
 
     echo
