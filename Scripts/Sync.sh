@@ -41,6 +41,7 @@ cd /tmp/dest_repo
 find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
 ls -a
 echo  '是这'
+commit
 mkdir /tmp/backup
 
 echo
