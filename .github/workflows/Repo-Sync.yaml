@@ -22,6 +22,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
+          username: hyyds
+          password: ${{ secrets.ACTION_SECRET }}
       - name: JDHelp
         run: |
           bash Scripts/Sync.sh \
