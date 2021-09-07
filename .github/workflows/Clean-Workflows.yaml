@@ -8,6 +8,8 @@ on:
 
 jobs:
   clean:
+    env:
+      PAT: ${{ secrets.PAT }}
     name: Clean
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -27,6 +29,6 @@ jobs:
       - name: Clean
         env:
           GITHUB_REPO: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
+          GITHUB_TOKEN: ${{  env.PAT }}
           EXPIRE_TIME: '1h'
         run: pipenv run python run.py
