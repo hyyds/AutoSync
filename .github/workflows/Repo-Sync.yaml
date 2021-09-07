@@ -23,8 +23,6 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: JDHelp
-        with:
-          github_token: ${{ secrets.ACTION_SECRET }}
         run: |
           bash Scripts/Sync.sh \
             https://github.com/he1pu/JDHelp main \

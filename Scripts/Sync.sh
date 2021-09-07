@@ -28,6 +28,7 @@ commit(){
 
 echo
 echo "-----------------------Cloning destination repo-----------------------"
+echo  $dest_repo
 git clone $dest_repo /tmp/dest_repo
 
 if [ ! -d "/tmp/dest_repo" ]
