@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-          github_token: ${{ secrets.ACTION_SECRET }
+          github_token: ${{ secrets.ACTION_SECRET }}
       - name: JDHelp
         run: |
           bash Scripts/Sync.sh \
