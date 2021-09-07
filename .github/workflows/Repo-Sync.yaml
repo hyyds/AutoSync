@@ -28,5 +28,5 @@ jobs:
         run: |
           bash Scripts/Sync.sh \
             https://github.com/he1pu/JDHelp main \
-            https://${{ github.repository_owner }}:${{ env.PAT}}@github.com/hyyds/jd-scripts
+            https://${{ github.repository_owner }}:${{ env.PAT }}@github.com/hyyds/jd-scripts
 
