@@ -11,12 +11,11 @@ dest_repo=$3
 params=$4
 
 commit(){
-    git config user.email "85011938+hyyds@users.noreply.github.com"
-    git config user.name "hyyds"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    git config user.name "Auto Update Bot"
     git add .
     git commit -am "Update"
-    git remote -v
-    git push origin main > /tmp/git_log
+    git push --porcelain > /tmp/git_log
     result=$(grep "up to date" /tmp/git_log)
     rm /tmp/git_log
     if [ "$result" ]
@@ -39,7 +38,6 @@ fi
 
 cd /tmp/dest_repo
 find . -maxdepth 1 -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
-commit
 mkdir /tmp/backup
 
 echo
@@ -65,8 +63,6 @@ if [ -d "/tmp/source_repo" ]; then
     fi
 
     rm -f README*
-    ls -a
-    echo '3'
     commit
 
     echo
