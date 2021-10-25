@@ -27,5 +27,5 @@ jobs:
       - name: smiek2221
         run: |
           bash Scripts/Sync.sh \
-            https://github.com/smiek2221/scripts main \
+            https://github.com/smiek2221/scripts master \
             https://${{ github.repository_owner }}:${{ env.PAT }}@github.com/hyyds/jd-scripts
