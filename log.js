@@ -1,6 +1,6 @@
 const cookieName = '锦鲤log'
 const chavy = init()
-const body = $request.headers['body']
+const body = $request.headers['Body']
 if (body) {
   chavy.msg('获取log: 成功','',body)
   chavy.log(` 获取log: 成功`)
